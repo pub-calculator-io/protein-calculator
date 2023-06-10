@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Protein Calculator</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-regular.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-500.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-600.woff2" as="font" crossorigin type="font/woff2">
+    <link rel="preload" href="./assets/fonts/inter-v12-latin-800.woff2" as="font" crossorigin type="font/woff2">
+    <script type="text/javascript">
+        window._ = document.getElementById.bind(document);
+        window.$ = document.querySelector.bind(document);
+        window.$$ = document.querySelectorAll.bind(document);
+        window.defaultSystem = "imperial";
+        localStorage.setItem("theme", "light");
+    </script>
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <script src="./assets/js/all-calculators.js" defer></script>
+</head>
+<body style="background-color: transparent !important; min-height: 0 !important">
+
+<div style="width: 100%;">
+    <div style="width:350px;float:left;padding: 15px;">
+        <div class="calculator-settings">
+            <div class="calculator-setting" id="calculator_form">
+                <div class="calculator-content col">
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                			<input type="hidden" value="male" id="gender"/>
+                			<p class="input__title">Gender</p>
+                			<button class="button-switcher button-switcher--active" type="button" onclick="switcher(this, 'gender', '')" value="male" id="gender-a">
+                					<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path stroke='#9CA3AF' d="M8.875 17.5C11.9816 17.5 14.5 14.9816 14.5 11.875C14.5 8.7684 11.9816 6.25 8.875 6.25C5.7684 6.25 3.25 8.7684 3.25 11.875C3.25 14.9816 5.7684 17.5 8.875 17.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path stroke='#9CA3AF' d="M12.8516 7.89844L17.625 3.125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path stroke='#9CA3AF' d="M13.875 3.125H17.625V6.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                		</svg>
+                				<span class="button-switcher__text button-switcher__text--active">Male</span>
+                			</button>
+                		</label>
+                		<label class="input col">
+                			<p class="input__title"></p>
+                			<button class="button-switcher" type="button" onclick="switcher(this, 'gender', '')" value="female" id="gender-b">
+                					<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                			<path stroke='#9CA3AF' d="M10.75 13.125C13.8566 13.125 16.375 10.6066 16.375 7.5C16.375 4.3934 13.8566 1.875 10.75 1.875C7.6434 1.875 5.125 4.3934 5.125 7.5C5.125 10.6066 7.6434 13.125 10.75 13.125Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path stroke='#9CA3AF' d="M10.75 13.125V18.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                			<path stroke='#9CA3AF' d="M7.625 16.25H13.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                		</svg>
+                				<span class="button-switcher__text">Female</span>
+                			</button>
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col   ">
+                			<p class="input__title">Age</p>
+                			<div class="input-field row">
+                				<input type="text" class="input-field__input" placeholder=""  id="age" value="30"  />
+                					<span class="input-field__hint">years</span>
+                			</div>
+                		
+                		
+                		</label>	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col">
+                			<p class="input__title">Height</p>
+                			<div class="input-field input-field--height row">
+                				<input type="text" class="input-field__input imperial-system-item" id="height_ft" data-target="height" value="5" onchange="updateHeight(this)" />
+                				<span class="input-field__hint imperial-system-item">ft</span>
+                		
+                				<input type="text" class="input-field__input imperial-system-item" id="height_in" data-target="height"  value="11.65" onchange="updateHeight(this)" />
+                				<span class="input-field__hint imperial-system-item">in</span>
+                		
+                				<input type="text" class="input-field__input metric-system-item system-item-hidden" id="height" data-target="height"  value="182" onchange="updateHeight(this)" />
+                				<span class="input-field__hint metric-system-item">cm</span>
+                			</div>
+                		</label>
+                		<label class="input col ">
+                			<p class="input__title">Weight</p>
+                			<div class="input-field row">
+                				
+                				<input type="text" class="input-field__input imperial-system-item" id="weight_imperial" data-target="weight" data-formula="value * 2.20462262185" value="176.4" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint imperial-system-item">pounds</span>
+                		
+                				
+                				<input type="text" class="input-field__input metric-system-item system-item-hidden" id="weight" data-target="weight" data-formula="value / 2.20462262185" value="80" onchange="sysnumconv(this)"  />
+                				<span class="input-field__hint metric-system-item system-item-hidden">kg</span>
+                			</div>
+                		</label>
+                	</div>
+                	<div class="input-wrapper row">
+                		<label class="input col ">
+                			<p class="input__title">Activity</p>
+                			<div class="dropdown-wrapper">
+                				<div class="input-field row " tabindex="0">
+                					<select class="input-field__text" onchange="toggleRelatedInputs(this)" id="activity">
+                							<option value="Basal Metabolic Rate (BMR)" >
+                							Basal Metabolic Rate (BMR)
+                							</option>
+                							<option value="Sedentary: little or no exercise" >
+                							Sedentary: little or no exercise
+                							</option>
+                							<option value="Light: exercise 1-3 times/week" >
+                							Light: exercise 1-3 times/week
+                							</option>
+                							<option value="Moderate: exercise 4-5 times/week" selected>
+                							Moderate: exercise 4-5 times/week
+                							</option>
+                							<option value="Active: daily exercise or intense exercise 3-4 times/week" >
+                							Active: daily exercise or intense exercise 3-4 times/week
+                							</option>
+                							<option value="Very Active: intense exercise 6-7 times/week" >
+                							Very Active: intense exercise 6-7 times/week
+                							</option>
+                							<option value="Extra Active: very intense exercise daily or physical job" >
+                							Extra Active: very intense exercise daily or physical job
+                							</option>
+                					</select>
+                				</div>
+                			</div>
+                		</label>	</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--options calculator-content--gray col  "  >
+                	<div class="calculator-content-head row">
+                		<p class="calculator-content-head__title">Options</p>
+                		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#9CA3AF"></path>
+                </svg>
+                	</div>
+                		<div class="calculator-content-body col">
+                				<div class="input-wrapper row">
+                					<label class="input col ">
+                						<p class="input__title">BMR Estimation Formula</p>
+                						<div class="dropdown-wrapper">
+                							<div class="input-field row " tabindex="0">
+                								<select class="input-field__text" onchange="toggleRelatedInputs(this)" id="formula">
+                										<option value="Mifflin St Jeor" >
+                										Mifflin St Jeor
+                										</option>
+                										<option value="Revised Harris-Benedict" >
+                										Revised Harris-Benedict
+                										</option>
+                										<option value="Katch-McArdle" >
+                										Katch-McArdle
+                										</option>
+                								</select>
+                							</div>
+                						</div>
+                					</label></div>
+                				
+                				<div class="input-wrapper row formula related-item-hidden related-to-formula-2">
+                					<label class="input col   ">
+                						<p class="input__title">Body Fat</p>
+                						<div class="input-field row">
+                							<input type="text" class="input-field__input" placeholder=""  id="fat" value="20"  />
+                								<span class="input-field__hint">%</span>
+                						</div>
+                					
+                						<div class="input-hints row">
+                							<span class="input-hints__hint input-hints__hint--comma">Used in Katch-McArdle Formula</span>
+                						</div>
+                					
+                					</label></div>
+                		</div>
+                </div>
+                
+                <div class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row  " >
+                
+                
+                		<button class="system-switcher" onclick="toggleSystem(this)">
+                			<div class="system-switcher__circle"></div>
+                			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M10.5 9.5H10C9.44772 9.5 9 9.05228 9 8.5V2.5M4.5 2.5H3.5C2.94772 2.5 2.5 2.94772 2.5 3.5L2.5 9.5M7.5 4.5L10.5 4.5M1.5 5.5L4.5 5.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                	<path d="M2 3.5L2 8.5M2 8L2 5.5C2 4.39543 2.89543 3.5 4 3.5C5.10457 3.5 6 4.39543 6 5.5M6 5.5L6 8.5M6 5.5L6 8M6 5.5C6 4.39543 6.89543 3.5 8 3.5C9.10457 3.5 10 4.39543 10 5.5V8.5" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                		</button>
+                
+                		<script type="text/javascript">
+                			$$(".imperial-system-item, .metric-system-item").forEach(function(element, index){
+                				element.classList.remove("system-item-hidden");
+                			});
+                			$$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function(element, index){
+                				element.classList.add("system-item-hidden");
+                			});
+                			if(defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
+                		</script>
+                
+                
+                	<button class="button button--primary ml-auto" onclick="calculate(this)">Calculate</button>
+                </div>
+                
+                
+                
+                
+                	<script type="text/javascript" src="./assets/js/calculator.js"></script>
+            </div>
+        </div>
+    </div>
+    <div style="float:left;padding: 15px; overflow: scroll;">
+        <div class="calculator-result calculator-result--error col" id="error-box">
+        	<div class="row">
+        		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        	<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM8.70711
+        						7.29289C8.31658 6.90237 7.68342 6.90237 7.29289 7.29289C6.90237 7.68342 6.90237 8.31658 7.29289 8.70711L8.58579 10L7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289
+        						12.7071C7.68342 13.0976 8.31658 13.0976 8.70711 12.7071L10 11.4142L11.2929 12.7071C11.6834 13.0976 12.3166 13.0976 12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071
+        						11.2929L11.4142 10L12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289C12.3166 6.90237 11.6834 6.90237 11.2929 7.29289L10 8.58579L8.70711 7.29289Z" fill="#F87171" class="dark:fill-red-200"></path>
+        </svg>
+        		<p class="calculator-error__title">There was an error with your calculation.</p>
+        	</div>
+        	<div class="col" id="error-list">
+        	</div>
+        </div>        <span id="calculator_result"><div class="calculator-result col">
+	<div class="result-table__wrapper">
+		<table class="result-table">
+			<thead>
+				<tr>
+					<th>American Dietetic Association (ADA)</th>
+					<td id="result-ada">At least 80 - 144 grams/day</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>The Centers for Disease Control and Prevention (CDC)</th>
+					<td id="result-cdc">64 - 224 grams/day (10-35% of daily caloric intake)</td>
+				</tr>
+				<tr>
+					<th>World Health Organization safe lower limit</th>
+					<td id="result-who">67 grams/day</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</span>
+    </div>
+</div>
+
+<script async src="./assets/js/lib/math.min.js"></script>
+<script defer src="./assets/js/functions.js"></script>
+
+</body>
+</html>
