@@ -2,7 +2,7 @@
 Contributors: calculatorio
 Tags: 
 Requires at least: 5.0
-Tested up to: 6.3.0
+Tested up to: 6.4.0
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,6 +12,12 @@ Relying on certain statistics and recommendations, this free protein calculator 
 == Description ==
 
 Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.
+
+__Shortcode__
+
+Use the Protein Calculator shortcode:
+
+`[ci_protein_calculator]`
 
 Libraries in use:
 1. https://mathjs.org/
@@ -25,8 +31,11 @@ Libraries in use:
 
 1. Upload the /ci_protein_calculator/ folder to the /wp-content/plugins/ directory.
 2. Activate the [Protein Calculator](https://www.calculator.io/protein-calculator/ "Protein Calculator Homepage") plugin through the "Plugins" menu in WordPress.
-3. Configure your settings via Appearance > Widgets > Protein Calculator.
-4. And you're good to go!
+
+== Usage ==
+* Add the shortcode `[ci_protein_calculator]` to your page or post and configure default mortgage parameters.
+* If you are using widgets, just add the Protein Calculator to the sidebar through the `Appearance -> Widgets -> Protein Calculator` menu in WordPress.
+* Add the following code: `<?php display_ci_protein_calculator(); ?>` to your template where you would like the Protein Calculator to appear.
 
 == Screenshots ==
 1. The Protein Calculator Input Form.
