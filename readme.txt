@@ -13,6 +13,8 @@ Relying on certain statistics and recommendations, this free protein calculator 
 
 Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.
 
+[Protein Calculator Homepage](https://www.calculator.io/protein-calculator/ "Protein Calculator Homepage")
+
 __Shortcode__
 
 Use the Protein Calculator shortcode:
