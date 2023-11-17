@@ -1,6 +1,6 @@
 === Protein Calculator by Calculator.iO ===
 Contributors: calculatorio
-Tags: 
+Tags: protein calculator, daily protein needs, BMR and protein intake, protein for active individuals, protein in diet, protein requirements by age, macronutrients and amino acids, protein intake for health conditions, RDA for protein, protein consumption calculation
 Requires at least: 5.0
 Tested up to: 6.4.0
 Stable tag: 1.0.0
