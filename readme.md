@@ -1,4 +1,4 @@
-# Protein Calculator WordPress Widget by [Calculator.iO](https://www.calculator.io/ "Calculator.iO Homepage")
+# Protein Calculator Widget for WordPress
 
 Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.
 
