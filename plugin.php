@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Protein Calculator by www.calculator.io
+Plugin Name: CI Protein calculator
 Plugin URI: https://www.calculator.io/protein-calculator/
 Description: Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.
 Version: 1.0.0
