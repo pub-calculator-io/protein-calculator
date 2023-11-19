@@ -7,7 +7,7 @@ Relying on certain statistics and recommendations, this free protein calculator 
 
 ## Installation
 
-1. [Download](https://github.com/pub-calculator-io/age-calculator/archive/refs/heads/master.zip) the ZIP file of this repository.
+1. [Download](https://github.com/pub-calculator-io/protein-calculator/archive/refs/heads/master.zip) the ZIP file of this repository.
 2. Upload the /protein-calculator-master/ folder to the /wp-content/plugins/ directory.
 3. Activate the [Protein Calculator](https://www.calculator.io/protein-calculator/ "Protein Calculator Homepage") plugin through the "Plugins" menu in WordPress.
 
