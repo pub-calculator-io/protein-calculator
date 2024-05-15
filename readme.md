@@ -3,7 +3,6 @@
 Relying on certain statistics and recommendations, this free protein calculator predicts how much protein a person needs each day to be healthy.
 
 ![Protein Calculator Input Form](/assets/images/screenshot-1.png "Protein Calculator Input Form")
-![Protein Calculator Calculation Results](/assets/images/screenshot-2.png "Protein Calculator Calculation Results")
 
 ## Installation
 

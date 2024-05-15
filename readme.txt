@@ -24,7 +24,6 @@ Add the following code to your template where you would like the Protein Calcula
 == Screenshots ==
 
 1. The Protein Calculator Input Form.
-2. The Protein Calculator Calculation Results.
 
 == Installation ==
 
